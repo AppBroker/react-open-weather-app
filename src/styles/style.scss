@@ -1,0 +1,228 @@
+@import 'theme-colors';
+$theme-font:montserrat,Helvetica,Arial,sans-serif;
+$curve-radius-general: 4px;
+
+body,html {
+  font-family: $theme-font;
+  font-size: $fontSize-General;
+  color:#333;
+  background-color:#f1e9da;
+
+  h1, h2 {
+      color: $themeColor-Dark;
+          font-weight: bold;
+  }
+
+  h2 {
+      font-size:  $fontSize-MediumLarge
+  }
+
+  h1 {
+  	font-size: $fontSize-Large;
+  }
+}
+
+a{background-color:transparent;-webkit-text-decoration-skip:objects;}
+*,*:before,*:after{box-sizing:inherit;}
+a {
+  color:$themeColor-Links;
+  text-decoration:underline;
+  font-weight:$fontWeight-Bold;
+}
+
+a:hover { 
+    background-color: $themeColor-Shine;
+}
+
+.arrow-grid {
+  transform-origin:50% 50%;
+  width:24px
+}
+
+.container {
+  font-family: $theme-font;
+  font-weight: 300;
+}
+
+.tiny {
+  text-transform: uppercase;
+  font-size:$fontSize-Tiny;
+}
+
+.examplesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.enhance {
+  color: $themeColor-Dark;
+  font-weight: bold;
+}
+
+.react-autosuggest__container {
+  position: relative;
+}
+
+input, select, textarea{
+  color: $themeColor-Dark;
+}
+
+.react-autosuggest__input {
+  width: 100%;
+  width: -webkit-calc(100% - 14px);
+  width:    -moz-calc(100% - 14px);
+  width:         calc(100% - 14px);
+  height: 30px;
+  margin-top: 1px;
+  margin-left: -1px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-family: $theme-font;
+  font-weight: fontWeight-Light;
+  font-size: $fontSize-General;
+  border: 3px solid $themeColor-Attention;
+  border-radius: $curve-radius-general;
+  background-color:#fff;
+  -webkit-appearance: none;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input::-ms-clear {
+  display: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  top: 51px;
+  width: 100%;
+  border: 1px solid $border-color-general;
+  background-color: #fff;
+  font-family: $theme-font;
+  font-weight: 300;
+  font-size: $fontSize-General;
+  border-bottom-left-radius: $curve-radius-general;
+  border-bottom-right-radius: $curve-radius-general;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #f8f8f8;
+}
+
+.page {
+
+}
+
+.price-percent-off {
+  color:$themeColor-PriceStandout;
+}
+
+.price-hot-deal {
+  color:#f44336;
+}
+
+.interactions {
+  text-align: center;
+  color: $themeColor-InterActionsRed;
+}
+
+.list {
+ 
+}
+
+.list-row {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+
+  border-radius: $curve-radius-general;
+}
+
+.special-title {
+    padding-top: 10px;
+    padding-bottom
+    : 10px;
+}
+
+.dashboard-tabs > div{
+    background-color: #433e5e !important;
+}
+
+.dashboard-tabs > div:nth-child(2) > div{
+    background-color: $themeColor-Shine !important;
+}
+
+.material_textfield > input + div > hr:nth-child(2){
+  border-bottom: 2px solid $themeColor-Shine !important;
+}
+
+.material_textfield{
+  font-family: $theme-font !important;
+}
+
+.material_dialogue > div > div > div{
+  font-family: $theme-font !important;
+  border-radius: $curve-radius-general !important;
+}
+
+.material_flatbutton {
+  font-family: $theme-font !important;
+  text-decoration:underline !important;
+  color:$themeColor-Dark !important;
+}
+
+.majority-day_weather {
+  display: inline-block;
+  height:50px;
+}
+
+.current-day_img{
+  display: inline-block;
+  vertical-align: top;
+  width:60px;
+  height:60px;
+}
+
+.majority-day_img {
+  display: inline-block;
+  vertical-align: top;
+  width:30px;
+  height:30px;
+}
+
+.general-page_layout {
+  margin:10px!important;
+  padding: 0;
+}
+
+.to-right {
+    text-align: right;
+}
