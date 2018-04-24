@@ -45,6 +45,8 @@ Switches to switch between farenheit, celsius, metric, imperial etc - id set the
 
 Loading Indicators - perhaps some basic elements to indicate the app is fetching something
 
+React Components - I also would refactor the tabs component into a dynamic component that could built itself dependent on the number of days provided. It would require a better look at the UX for any more days especially on mobile.
+
 CSS - The CSS needs a good cleanup too.
 
 Swipe Indicators - on a mobile device you can swipe between days, its not immediately obvious, so an initial swipe hint
