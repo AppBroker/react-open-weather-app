@@ -4,8 +4,8 @@ A very simple app that allows users to get weather information based on a city o
 ## Getting Started
 Download the app:
 
-git clone https://github.com/AppBroker/open-weather-app
-cd open-weather-app
+git clone https://github.com/AppBroker/react-open-weather-app
+cd react-open-weather-app
 
 
 ## Testing the app
