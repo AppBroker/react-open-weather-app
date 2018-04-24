@@ -45,11 +45,13 @@ Switches to switch between farenheit, celsius, metric, imperial etc - id set the
 
 Loading Indicators - perhaps some basic elements to indicate the app is fetching something
 
+CSS - The CSS needs a good cleanup too.
+
 Swipe Indicators - on a mobile device you can swipe between days, its not immediately obvious, so an initial swipe hint
 
 Enter Submit - hitting enter should submit the weather search, no brainer, yet ive not implemented it as part of form element, so I'd likely do that too.
 
-Tests - There are a couple tests that cover the end2end testing on the third party api and one on the redux-saga ive set up. For now I've written an end to end test to make sure that if the data structure changes to the way I am filtering the results we will be able to determine from running the tests. Coverage is nowhere near where it could be, ive skipped UI unit tests for the sake of brevity...istanbul will create a folder called coverage in the root to show the coverage to prove this fact.
+Tests - There are a couple tests that cover the end2end testing on the third party api and one on the redux-saga ive set up. For now I've written an end to end test to make sure that if the data structure changes to the way I am filtering the results we will be able to determine from running the tests. Coverage is nowhere near where it could be, ive skipped UI unit tests for the sake of brevity...istanbul will create a folder called coverage in the root to show the coverage to prove this fact. Istanbul appears to be throwing an error after running the tests, but the tests are being run regardless. Ive not had time to look into it.
 
 Refactor - After initial load I'm splitting the returned weather pattern data up by filtering on the day_txt key then applying the patterns into their respective days from there and applying the keys into the object as the pure day date. I'm sure I could think of plenty of other ways to do this, but it was working so decided to leave it for now and get on with some other features, regarding that point - I've written an end to end test to make sure that if the data structure changes to the way I am filtering the results in the reducer method arrangePatternsByDays we will be able to determine any issues by running the tests.
 
