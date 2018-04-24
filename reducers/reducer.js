@@ -61,23 +61,6 @@ const reducer = (state = appInitialState, action) => {
       ...{ error: action.error }
     }
 
-  case actionTypes.LOAD_DATA_SUCCESS:
-    return {
-      ...state,
-      ...{ placeholderData: action.data }
-    }
-
-  case actionTypes.RESULT_SCROLL_DATA_SUCCESS:
-    let consolidateData = [...state.totalData, action.data.hits.hits]
-    let totalOfLoaded = consolidateData.length
-    return {
-      ...state,
-      ...{ totalData: consolidateData, totalCount: action.data.hits.total,
-        totalLoadedCount: totalOfLoaded, preference: action.preference,
-        searchTerm: action.data.searchTerm, hasSearched: true, isLoadingXHR: false
-      }
-    }
-
   case actionTypes.LOAD_RESULT_DATA:
     return {
       ...state,
@@ -116,12 +99,6 @@ const reducer = (state = appInitialState, action) => {
         preference: action.preference, searchTerm: action.data.searchTerm,
         hasSearched: true, isLoadingXHR: false
       }
-    }
-
-  case actionTypes.SEARCH_DATA_SUCCESS:
-    return {
-      ...state,
-      ...{ searchData: action.data, hasSearched: true, isLoadingXHR: false }
     }
 
   default:
