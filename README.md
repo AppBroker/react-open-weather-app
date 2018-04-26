@@ -47,7 +47,7 @@ Loading Indicators - perhaps some basic elements to indicate the app is fetching
 
 React Components - I also would refactor the tabs component into a dynamic component that could built itself dependent on the number of days provided. It would require a better look at the UX for any more days especially on mobile.
 
-CSS - The CSS needs a good cleanup too.
+CSS - The CSS needs a good cleanup too. There are a few hacky !importants in the css to override the tabs bar, ive not had time to dig into the component yet properly, just needed a quick way to get the tabs working and looking ok.
 
 Swipe Indicators - on a mobile device you can swipe between days, its not immediately obvious, so an initial swipe hint
 
