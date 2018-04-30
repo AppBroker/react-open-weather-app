@@ -1,12 +1,8 @@
 /* eslint-env jest */
 import React from 'react'
-
 import { shallow } from 'enzyme'
-
 import WeatherCard from '../WeatherCard'
-
 import { arrangePatternsByDays, getDaysData } from '../../reducers/reducer'
-
 import { list }  from '../../__mocks__/api-data.json'
 
 let weatherData = arrangePatternsByDays(list)
