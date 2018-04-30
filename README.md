@@ -4,27 +4,27 @@ A very simple app that allows users to get weather information based on a city o
 ## Getting Started
 Download the app:
 
-git clone https://github.com/AppBroker/react-open-weather-app
-cd react-open-weather-app
+`git clone https://github.com/AppBroker/react-open-weather-app`  
+`cd react-open-weather-app`
 
 ## Starting the app
 Install the app
 
 (make sure you have the latest versions of Node/NPM to run)
 
-npm install
+`npm install`
 
 
 Build
 
 
-npm run build
+`npm run build`
 
 
-Run Locally
+Run Locally (development)
 
 
-npm run dev
+`npm run dev`
 
 
 Go to http://localhost:3000 to view the open weather app. Alternatively you can view a [demo](http://open-weather-app.eu-gb.mybluemix.net) here
@@ -33,11 +33,11 @@ Go to http://localhost:3000 to view the open weather app. Alternatively you can 
 Run the tests:
 I've set up 2 seperate test scripts, one for basic tests which run a bit faster and one for automated ui tests which take slightly longer, in the future id likely split them into unit/integration/quick ui/automated ui
 
-npm run test 		//this will run the basic tests
+`npm run test` 		//this will run the basic tests
 
 and 
 
-npm run test-automation 		//this will launch puppeteer and do some heavier ui automated tests
+`npm run test-automation` 		//this will launch puppeteer and do some heavier ui automated tests
 
 ## Thoughts and todo list
 Tests - I did a bit of refactoring on the reducer and for simplicity of the setup of the rig I ported over the old tests from Mocha into Jest, I also created some new tests mostly around the view components ( WeatherCard and Index page ). I decided to use Puppeteer to automate the UI testing of a search result being applied (populating the search input and submitting the search...and ultimately checking results are loaded). I decided to split the Automated tests away from the smaller tests I was running as described in the commands above, so these tests are run seperately now.
