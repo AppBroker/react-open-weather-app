@@ -40,7 +40,7 @@ and
 `npm run test-automation` 		//this will launch puppeteer and do some heavier ui automated tests
 
 ## Thoughts and todo list
-Tests - I did a bit of refactoring on the reducer and for simplicity of the setup of the rig I ported over the old tests from Mocha into Jest, I also created some new tests mostly around the view components ( WeatherCard and Index page ). I decided to use Puppeteer to automate the UI testing of a search result being applied (populating the search input and submitting the search...and ultimately checking results are loaded). I decided to split the Automated tests away from the smaller tests I was running as described in the commands above, so these tests are run seperately now.
+Tests - I did a bit of refactoring on the reducer and for simplicity of the setup of the rig vs the time involved I ported over the old tests from Mocha into Jest, I also created some new tests mostly around the view components ( WeatherCard and Index page ). I decided to use Puppeteer to automate the UI testing of a search result being applied (populating the search input and submitting the search...and ultimately checking results are loaded). I decided to split the Automated tests away from the smaller tests I was running as described in the commands above, so these tests are run seperately now.
 
 ## Test Suites In Following Locations:
 `__tests__/index.automation.js`  
