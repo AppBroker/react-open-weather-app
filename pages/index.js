@@ -38,7 +38,10 @@ const styles = {
   },
 }
 
-class Index extends Component {
+class IndexPage extends Component {
+  constructor(props) {
+    super(props)
+  }
     state = {
       slideIndex: 0
     };
@@ -111,4 +114,4 @@ class Index extends Component {
 }
 
 const mapStateToProps = ({ resultData, hasSearched, daysData }) => ({ resultData, hasSearched, daysData })
-export default withReduxSaga(connect(mapStateToProps)(PageWrapper(Index)))
+export default withReduxSaga(connect(mapStateToProps)(PageWrapper(IndexPage)))

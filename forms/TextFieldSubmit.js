@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import FormValidator from '../forms/FormValidator'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { loadResultData } from '../actions/actions'
+import { loadResultData, searchFieldChanged } from '../actions/actions'
 import { connect } from 'react-redux'
 
 class TextFieldSubmit extends React.Component {
@@ -38,6 +38,7 @@ class TextFieldSubmit extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     })
+    this.props.dispatch(searchFieldChanged({ searchTerm: event.target.value, preference: 'weather' }))
   }
 
   handleFormSubmit = async (event) => {
@@ -53,18 +54,21 @@ class TextFieldSubmit extends React.Component {
 
   render() {
     let validation = this.submitted ? this.validator.validate(this.state) : this.state.validation
+    const hintText = this.props.searchTerm === '' ? 'Add your weather location' : ''
     return (
       <MuiThemeProvider>
         <div>
         	<TextField
-        	  id='capture_email'
+        	  id='capture_searchterm'
         	  name='location'
         	  className='material_textfield'
         	  onChange={this.handleInputChange}
-        	  hintText='Add your weather location'
+            value={this.props.searchTerm}
+        	  hintText={hintText}
         	  errorText={validation.location.message}
         	/>
         	<RaisedButton
+              id='capture_submit'
         	    className='material_flatbutton'
         	    label='Search'
         	    primary={true}

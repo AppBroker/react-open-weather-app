@@ -17,6 +17,8 @@ module.exports = {
         use: ['babel-loader', 'raw-loader', 'postcss-loader']
       }
       ,
+      { test: /\.json$/, use: 'json-loader' }
+      ,
       {
         test: /\.s(a|c)ss$/,
         use: ['babel-loader', 'raw-loader', 'postcss-loader',
@@ -29,12 +31,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.js$/,
-        use: ['babel-loader'],
-        exclude: /node-modules/,
-        include: path.join(__dirname, 'test'),
       }
     )
     return config

@@ -3,13 +3,13 @@ import moment from 'moment'
 import { Config } from '../config.js'
 
 class WeatherCard extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
   }
 
   render() {
     return (
-      <div>
+      <div id='search-results'>
       	{this.props.isCurrentDay &&
       	  <div>
         	<img className='current-day_img' src={this.props.day.currentWeatherIcon} />
@@ -42,7 +42,7 @@ class WeatherCard extends Component {
             const patternWeatherDescription = pattern.weather[0].description
             const patternTemp = Math.round(pattern.main.temp)
             return (
-              <div key={index}>
+              <div className='weather-item_3hr' key={index}>
                 <p><span className='enhance'>{clockTime}</span></p>
                 Wind: <img src={Config.weatherArrowImageUrl}
                   style={{ transform: `rotate(${windDeg}deg)` }} className='majority-day_img arrow-grid' /> @

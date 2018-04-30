@@ -1,7 +1,8 @@
 import { actionTypes } from '../actions/actions'
 import moment from 'moment'
 import { Config } from '../config.js'
-import { groupBy, chain, last, toPairs, maxBy, get } from 'lodash'
+import { chain, last, toPairs, maxBy, get, groupBy } from 'lodash'
+import { map } from 'lodash/fp'
 
 export const appInitialState = {
   count: 0,
@@ -40,17 +41,43 @@ export const getAverageFromPattern = (data, typekey, patternkey) => {
   }) / patternSpread.length)
 }
 
+const allPatterns = map(
+  (pattern) => {
+    const dayDT = pattern.dt_txt.split(' ')
+    return {
+      ...pattern,
+      ...{ dt_txt_pureday: dayDT[0], dt_txt_purehour: dayDT[1] }
+    }
+  })
+
 export const arrangePatternsByDays = (data) => {
   const list = [...data]
-  return groupBy(
-    list.map(
-      (pattern) => {
-        const dayDT = pattern.dt_txt.split(' ')
-        return {
-          ...pattern,
-          ...{ dt_txt_pureday: dayDT[0], dt_txt_purehour: dayDT[1] }
-        }
-      }), 'dt_txt_pureday')
+  return groupBy(allPatterns(list), 'dt_txt_pureday')
+}
+
+export const getDaysData = (data) => {
+  return Object.keys(data).map((day, index)=>{
+    const currentWeather = { ...data[day][0].weather[0] }
+    const currentMain = { ...data[day][0].main }
+    const currentWeatherIcon = `${Config.weatherApiIconsUrl}${currentWeather.icon}.png`
+    const currentWeatherDescription = currentWeather.description
+    const currentTemp = Math.round(currentMain.temp)
+    const dayName = index > 1 ? appInitialState.weekDays[moment(day).day()] : appInitialState.nowNextDays[index]
+    // Mostly description
+    const mostlyDescription = getHighestOccurringPattern(data[day], 'description')
+    // Mostly main weather
+    const withWeather = getHighestOccurringPattern(data[day], 'main')
+    // Mostly icon
+    const icon = getHighestOccurringPattern(data[day], 'icon')
+    // Average temperature
+    const avgTemp = getAverageFromPattern(data[day], 'main', 'temp')
+    // Average windspeed
+    const windDirection = getAverageFromPattern(data[day], 'wind', 'deg')
+
+    return { dayName, patternsInDay: [ ...data[day] ], mostlyDescription, withWeather,
+      icon, avgTemp, windDirection, currentWeather, currentWeatherIcon, currentWeatherDescription, currentTemp
+    }
+  })
 }
 
 const reducer = (state = appInitialState, action) => {
@@ -67,31 +94,15 @@ const reducer = (state = appInitialState, action) => {
       ...{ hasSearched: true, isLoadingXHR: true }
     }
 
+  case actionTypes.SEARCH_TERM_CHANGE:
+    return {
+      ...state,
+      ...{ searchTerm: action.data.searchTerm, preference: action.data.preference }
+    }
+
   case actionTypes.RESULT_DATA_SUCCESS:
     const patternsInDays = arrangePatternsByDays(action.data.list)
-
-    const daysData = Object.keys(patternsInDays).map((day, index)=>{
-      const currentWeather = { ...patternsInDays[day][0].weather[0] }
-      const currentMain = { ...patternsInDays[day][0].main }
-      const currentWeatherIcon = `${Config.weatherApiIconsUrl}${currentWeather.icon}.png`
-      const currentWeatherDescription = currentWeather.description
-      const currentTemp = Math.round(currentMain.temp)
-      const dayName = index > 1 ? state.weekDays[moment(day).day()] : state.nowNextDays[index]
-      // Mostly description
-      const mostlyDescription = getHighestOccurringPattern(patternsInDays[day], 'description')
-      // Mostly main weather
-      const withWeather = getHighestOccurringPattern(patternsInDays[day], 'main')
-      // Mostly icon
-      const icon = getHighestOccurringPattern(patternsInDays[day], 'icon')
-      // Average temperature
-      const avgTemp = getAverageFromPattern(patternsInDays[day], 'main', 'temp')
-      // Average windspeed
-      const windDirection = getAverageFromPattern(patternsInDays[day], 'wind', 'deg')
-
-      return { dayName, patternsInDay: [ ...patternsInDays[day] ], mostlyDescription, withWeather,
-        icon, avgTemp, windDirection, currentWeather, currentWeatherIcon, currentWeatherDescription, currentTemp
-      }
-    })
+    const daysData = getDaysData(patternsInDays)
 
     return {
       ...state,
