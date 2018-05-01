@@ -1,5 +1,5 @@
 # Open Weather App (SSR React/Redux/Saga and Node)
-A very simple app that allows users to get weather information based on a city of choice. Also demonstrates simple GET process from the open weather api. Built using React, Redux/Redux Saga, Next JS (server side rendering) and Node.js, using webpack and babel for the scaffolding. Testing and coverage in Jest and Enzyme, more complex automated ui tests in Puppeteer and api testing with supertest.
+A very simple app that allows users to get weather information based on a city of choice. Also demonstrates simple GET process from the open weather api. Built using React, Redux/Redux Saga, Next JS (server side rendering) and Node.js, using webpack and babel for the scaffolding. Testing and coverage in Jest and Enzyme, more complex automated ui tests in Puppeteer using Chrome Headless and api testing with supertest.
 
 ## Getting Started
 Download the app:
