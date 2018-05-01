@@ -1,7 +1,7 @@
 /* eslint-env jest */
 import puppeteer from 'puppeteer'
 
-const automationTimeOut = 10000
+const automationTimeOut = 30000
 let page
 let browser
 
