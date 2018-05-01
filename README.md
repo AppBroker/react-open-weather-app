@@ -8,7 +8,7 @@ Download the app:
 `cd react-open-weather-app`
 
 ## Starting the app
-Install the app
+Install the app (if you've already installed and intend on installing the latest version Id reccomend doing a clean install, as a few libraries have changed)
 
 (make sure you have the latest versions of Node/NPM to run)
 

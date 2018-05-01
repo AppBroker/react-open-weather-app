@@ -1,6 +1,6 @@
 {
     "name": "open-weather-app",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Another front end UI for the open weather api",
     "main": "index.js",
     "scripts": {
