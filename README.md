@@ -27,7 +27,7 @@ Run Locally (development)
 `npm run dev`
 
 
-Go to http://localhost:3000 to view the open weather app. Alternatively you can view a [demo](http://open-weather-app.eu-gb.mybluemix.net) here
+Go to http://localhost:3000 to view the open weather app. Alternatively you can view a [demo](https://open-weather-app.eu-gb.mybluemix.net) here
 
 ## Testing the app
 Run the tests:
